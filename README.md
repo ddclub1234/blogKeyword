@@ -5,10 +5,16 @@
   - spring boot '2.7.9'
   - gradle
   - h2(in-memory)
+
+## 2. Port
+  > **8089**
   
-## 2. API 명세(port:8089)
+## 3. API 명세
 ### 1) 블로그 검색
+```
      - api : /blog/search
+     - method : post
+     - 카카오 API를 사용하여 블로그 검색 리스트를 조회한다. 카카오API 오류시 네이버 API 사용
      - Request body 
      {
         "query" : 검색키워드(*필수*)
@@ -31,6 +37,27 @@
             "blogname": 블로그의 이름,
             "thumbnail": 검색 시스템에서 추출한 대표 미리보기 이미지 URL, 미리보기 크기 및 화질은 변경될 수 있음,
             "datetime": 블로그 글 작성시간
-          }
-      ]
-   }
+           }
+         ]
+       }
+```
+
+### 2) 인기 검색어 목록
+```
+     - api : /blog/top/keyword
+     - method : get
+     - 사용자들이 많이 검색한 순서대로, 최대 10개의 검색 키워드와 검색 수를 조회한다.
+     - Response Body
+     [
+       {
+        "keyword": 검색어,
+        "count": 검색 수
+       }
+     ]
+```
+
+## 4. 테스트
+  - Junit을 활용하여 테스트
+  - KeywordApplicationTests 클래스에서 구현한 API 기준으로 시나리오 테스트
+
+
