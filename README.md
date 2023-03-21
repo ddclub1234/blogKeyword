@@ -60,4 +60,6 @@
   - Junit을 활용하여 테스트
   - KeywordApplicationTests 클래스에서 구현한 API 기준으로 시나리오 테스트
 
+## 5. Jar 파일 다운로드 링크
+  - https://github.com/ddclub1234/blogKeyword/raw/main/jar/keyword-0.0.1-SNAPSHOT.jar
 
